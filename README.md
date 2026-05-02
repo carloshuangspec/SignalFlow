@@ -122,10 +122,8 @@ SignalFlow/
 | **Phase 3** | Vector search knowledge base (embeddings + RAG) |
 | **Phase 4** | Crypto & stock market real-time alerting |
 | **Phase 5** | Full web dashboard with data visualization |
-| **Phase 6** | MSU study assistant integration |
-
 ---
 
 <p align="center">
-  <sub>Built by <a href="https://github.com/carloshuangspec">Carlos Huang</a> — designed for 24/7 autonomous operation</sub>
+  <sub>Designed for 24/7 autonomous operation</sub>
 </p>
