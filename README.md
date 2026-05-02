@@ -1,4 +1,4 @@
-# AI-OS — Personal AI Information Operating System
+# SignalFlow — Intelligent Information Pipeline
 
 [![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/docker-ready-2496ED.svg?logo=docker)](https://www.docker.com/)
@@ -33,7 +33,7 @@ Multi-platform Sources          AI Pipeline                   Delivery
                            └──────────────────────┘
 ```
 
-## How AI-OS Works
+## How SignalFlow Works
 
 Each post passes through a **specialized 3-model pipeline**:
 
@@ -69,8 +69,8 @@ Each post passes through a **specialized 3-model pipeline**:
 
 ```bash
 # 1. Clone
-git clone https://github.com/YOUR_USERNAME/AI-OS.git
-cd AI-OS
+git clone https://github.com/carloshuangspec/SignalFlow.git
+cd SignalFlow
 
 # 2. Configure
 cp .env.example .env
@@ -87,7 +87,7 @@ docker compose up -d
 ## Project Structure
 
 ```
-AI_OS/
+SignalFlow/
 ├── main.py                  # Entry point (bot | scheduler | run-once | all)
 ├── docker-compose.yml       # 3-service orchestration
 ├── Dockerfile               # python:3.12-slim base
