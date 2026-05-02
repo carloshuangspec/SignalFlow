@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  # ─── Telegram Bot 服务 ───
+  bot:
+    build: .
+    container_name: ai_os_bot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ai_os_data:/data/ai_os
+      - ./bot:/app/bot:ro
+      - ./pipeline:/app/pipeline:ro
+      - ./knowledge:/app/knowledge:ro
+    command: python -m bot.telegram_bot
+    depends_on:
+      - scheduler
+    networks:
+      - ai_os_net
+
+  # ─── 定时调度器 ───
+  scheduler:
+    build: .
+    container_name: ai_os_scheduler
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ai_os_data:/data/ai_os
+      - ./scrapers:/app/scrapers:ro
+      - ./pipeline:/app/pipeline:ro
+      - ./scheduler:/app/scheduler:ro
+    command: python -m scheduler.jobs
+    networks:
+      - ai_os_net
+
+  # ─── Playwright 浏览器服务（供爬虫调用）───
+  playwright:
+    image: mcr.microsoft.com/playwright:latest
+    container_name: ai_os_playwright
+    restart: unless-stopped
+    environment:
+      - PLAYWRIGHT_WS_ENDPOINT=ws://playwright:3000
+    networks:
+      - ai_os_net
+
+volumes:
+  ai_os_data:
+    driver: local
+
+networks:
+  ai_os_net:
+    driver: bridge

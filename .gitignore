@@ -1,0 +1,48 @@
+# ─── Secrets & Environment ───
+.env
+*.env.local
+*.env.production
+credentials.*
+secrets.*
+**/service-account*.json
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# ─── IDE & Editor ───
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Docker ───
+docker-compose.override.yml
+
+# ─── Runtime Data ───
+data/
+logs/
+*.log
+/screenshots/
+
+# ─── Test & Coverage ───
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ─── Misc ───
+*.tmp
+*.temp
